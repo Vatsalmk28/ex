@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("sample", []);
+
+        app.controller("mycontroller", function($scope) {
+            $scope.Name = "mukti";
+            $scope.reverseName = function() {
+                $scope.Name = $scope.Name.split('').reverse().join('');
+            };
+        });
+
+        app.directive("myDirective" function(){
+            return {
+                restrict: "EA",
+                scope: false,
+                template: "<div>Your name is: {{Name}}</div>Change your name: <input type='text' ng-model='Name'/>"
+            };
+        });
+    </script>
+</head>
+<body ng-app="sample">
+    <div ng-controller="mycontroller">
+        <h2 ng-click="reverseName()">Hey {{Name}}</h2>
+    </div>
+    <div mydirective></div>
+</body>
+</html>

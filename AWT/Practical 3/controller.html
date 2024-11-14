@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Controller</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript">
+            var app = angular.module("sample",[]);
+                app.controller("emp",function(){
+                    this.name = "AYUSH";
+                    this.sal = 50000
+                })
+        </script>
+    </head>
+    <body ng-app="sample">
+        <div ng-controller="emp as a">
+            Hello {{a.name}}, looks like you are learning {{a.sal}} as your salary.
+        </div>
+    </body>
+</html>

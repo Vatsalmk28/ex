@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript">
+        var app = angular.module("myapp",[]);
+        app.factory("myfactory",function(){
+            var obj={};
+            obj.getname=function()
+            {
+                return "hello mukti";
+            }
+            return obj;
+        });
+            app.controller("mycontroller",function($scope,myfactory) {
+                $scope.msg=myfactory.getname();
+            });
+            
+    </script>
+    </head>
+    <body ng-app="myapp">
+       <div ng-controller ="mycontroller">
+        Hello {{msg}}
+       </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax with Database</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="name" placeholder="Enter your name" value=""/><br><br>
+        <input type="text" name="email" placeholder="Enter your email" value=""/><br><br>
+        <input type="text" name="phone" placeholder="Enter your phone" value=""/><br><br>
+        <input type="button" name="submit" onclick="submitForm()" value="SUBMIT"/><br>
+    </form>
+
+    <script type="text/javascript">
+        function submitForm() {
+            var name = $('input[name=name]').val();
+            var email = $('input[name=email]').val();
+            var phone = $('input[name=phone]').val();
+            var formdata = {name: name, email: email, phone: phone};
+
+            $.ajax({
+                url: "http://localhost/ADVANCED%20WEB%20TECHNOLOGY/Practical%202/newdata.php",
+                type: 'POST',
+                data: formdata,
+                success: function(response) {
+                    alert("Data saved successfully!");
+                    console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("An error occurred: " + textStatus + " - " + errorThrown);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

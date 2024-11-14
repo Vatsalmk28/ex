@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myapp", []);
+
+        app.controller("mycontroller", function($scope, $http) {
+            $http({
+                method: "GET",
+                url: "http://localhost/phppro/try3.php"
+            }).then(
+                function(response) {
+                    console.log("Data fetched successfully:", response.data);
+                    $scope.contacts = response.data;
+                },
+                function(response) {
+                    $scope.contacts = [];
+                    console.error("Error fetching data:", response.status, response.statusText);
+                    alert("Failed to load data. Please check the console for more details.");
+                }
+            );
+        });
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="mycontroller">
+        <h1>Contact List</h1>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+            </tr>
+            <tr ng-repeat="x in contacts">
+                <td>{{x.name}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.phone}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

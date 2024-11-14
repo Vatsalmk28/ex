@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>AngularJS Location Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module("myapp",[]);
+        app.controller("mycontroller", function($scope, $location) {
+            $scope.curl = $location.absUrl();   // Fixed to absUrl()
+            $scope.url = $location.url();
+            $scope.port = $location.port();
+            $scope.protocol = $location.protocol();
+            $scope.host = $location.host();
+        });
+    </script>
+</head>
+<body ng-app="myapp">
+   <div ng-controller="mycontroller">
+        <h1>Complete URL: {{curl}}</h1>
+        <h1>URL Path: {{url}}</h1>
+        <h1>Port: {{port}}</h1>
+        <h1>Protocol: {{protocol}}</h1>
+        <h1>Host: {{host}}</h1>
+   </div>
+</body>
+</html>
