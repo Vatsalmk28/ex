@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #9f9e9e;
+            overflow: hidden;
+        }
+        .menu li {
+            float: center;
+        }
+        .menu li a {
+            display: block;
+            color: #0b0707;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .menu li a:hover {
+            background-color:rgb(9, 9, 12);
+            color: whitesmoke;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var app = angular.module("myapp",["ngRoute"]);
+        app.config(function($routeProvider){
+            $routeProvider
+            .when("/",{
+                template : "<h2> Welcome to the Home Page</h2><p>This is a simple Angular JS App.</p>"
+            })
+
+            .when("/registration",{
+                // template: "<h2>Registration Page</h2><p>This is the Registration Page</p>";
+                templateUrl: "registration.html"
+            })
+
+            .when("/login",{
+                // template: "<h2>Login Page</h2><p>This is the Login Page</p>"
+                templateUrl: "login.html"
+            })
+
+            .when("/about",{
+                template: "<h2>About Us</h2><p>About us Page content goes here</p>"
+            })
+
+            .otherwise({
+                redirectTo: "/"
+            });
+        })
+    </script>
+
+
+
+</head>
+<body ng-app = "myapp">
+    <div class="menu">
+        <ul>
+            <li><a href="#!/">Home</a></li>
+            <li><a href="#!registration">Registration</a></li>
+            <li><a href="#!login">Login</a></li>
+            <li><a href="#!about">About</a></li>
+        </ul>
+    </div>
+    <div class="content" ng-view></div>
+    
+</body>
+</html>

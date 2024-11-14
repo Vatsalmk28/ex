@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript">
+        var app = angular.module("myapp",[]);
+        
+            app.controller("mycontroller",function($scope,$timeout) {
+                $scope.msg="angular js";
+                $timeout(function(){
+                    $scope.msg= "welcome to angular js"
+                },5000)
+            });
+            
+    </script>
+    </head>
+    <body ng-app="myapp">
+       <div ng-controller ="mycontroller">
+      <h1>{{msg}}</h1>
+       </div>
+    </body>
+</html>

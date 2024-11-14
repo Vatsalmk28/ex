@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript"> </script>
+    </head>
+    <body ng-app="">
+        <div ng-init="a=45;b=12;sub=a-b;add=a+b;emp ={empid:103,empname:'mo'}">
+            <span>
+                value of a={{a}}<br>
+            </span>
+            <span ng-bind="a+b"></span><br>
+           <span>employee id= <input type="text" ng-model="emp.empid"/></span>
+           <span>employee name= <input type="text" ng-model="emp.empname"/></span>
+        </body>
+        </div>
+</html>

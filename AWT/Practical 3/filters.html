@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Filter</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script type="text/javascript">
+            var app = angular.module("studentapp",[]);
+                app.controller("myController",function($scope){
+                
+                })
+        </script>
+    </head>
+    <body ng-app="studentapp" ng-controller="myController">
+        <input type="text" ng-model="text" name=" "><br>
+        Name: {{text | lowercase}};<br><br>
+        Name: {{text | uppercase}};<br><br>
+        <input type="text" ng-model="price" currency=" "><br>
+        Price: {{price | currency}};<br><br>
+    </body>
+</html>

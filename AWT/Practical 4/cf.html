@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custome Filter Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("myapp",[]);
+
+        app.controller("mycontroller", function($scope){
+            $scope.users = [
+                {name:"m1", city:"ahm", gender:1},
+                {name:"m2", city:"vapi", gender:2},
+                {name:"m3", city:"brd", gender:3},
+                {name:"m4", city:"brd", gender:3},
+                {name: "m5", city: "brd", gender: 2},
+                {name: "m6", city: "brd", gender: 3},
+                {name: "m6", city: "brd", gender: 0}
+            ];
+        });
+
+        app.filter("gender", function(){
+            return function(input){
+                switch(input){
+                    case 1:
+                        return "Male";
+                    case 2:
+                        return "Female";
+                    case 3:
+                        return "Not Recorded";
+                    default:
+                        return "Unknown";
+                }
+            };
+        });
+    </script>
+</head>
+<body align="center" ng-app="myapp" ng-controller="mycontroller">
+    <table border="4" align="center" width="50%">
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Gender</th>
+        </tr>
+        <tr ng-repeat="i in users">
+            <td>{{i.name}}</td>
+            <td>{{i.city}}</td>
+            <td>{{i.gender | gender}}</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

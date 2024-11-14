@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Form Validation</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+            <script type="text/javascript"> 
+            var app= angular.module('myapp',[]);
+            app.controller("validation",function($scope){ 
+                
+            });
+            </script>
+            </head>
+            <body>
+            <form ng-app="myapp" ng-controller="validation" name="myform" novalidate>
+                <label for="firstname">first name:</label>|
+                <input type="text" name="firstname" ng-model="firstname" ng-required="true"/><br><br>
+                <span ng-show="myform.firstname.$touched && myform.firstname.$error.required">firstname is required </span><br><br>
+
+                <label for="lastname">last name:</label>
+                <input type="text" name="lastname" ng-model="lastname" ng-required="true"  ng-minlength="3" maxlength="10"/><br><br>
+                <span ng-show="myform.lastname.$error.required ">lastname is required </span><br><br>
+                <span ng-show="myform.lastname.$error.minlength ">min 3 letter </span><br><br>
+
+                <label for="email">email:</label>
+                <input type="email"  id ="email" ng-model="email" name="email" /><br><br>
+                <span ng-show="myform.email.$error.email ">please enter email format </span><br><br>
+                <input ng-disabled="myform.firstname.$error.required || myform.lastname.$error.required || myform.lastname.$error.minlength || myform.email.$error.email"type="submit" value="submit" />
+                
+                </form>
+            </body>
+</head>
+</html>
