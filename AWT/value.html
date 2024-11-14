@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Value Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', [])
+        app.value('a', 7)
+        app.controller('MainController', ['$scope', 'a', function($scope, a) {
+            $scope.value = a;  
+        }]);
+    </script>
+</head>
+<body ng-controller="MainController">
+    <h1>Using AngularJS Value</h1>
+    <p>Value of a: {{ value }}</p>
+</body>
+</html>

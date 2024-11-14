@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Constant Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module('myApp', []);
+    app.constant('PI', 3.14159);
+    app.controller('MainController', ['$scope', 'PI', function($scope, PI) {
+      $scope.piValue = PI;  
+    }]);
+  </script>
+</head>
+<body ng-controller="MainController">
+  <h1>Using AngularJS Constant</h1>
+  <p>Value of PI: {{ piValue }}</p>
+</body>
+</html>
